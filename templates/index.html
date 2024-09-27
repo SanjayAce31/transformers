@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>TRANFORMERS</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg color">
+        <div class="container-fluid" >
+            <a class="navbar-brand" href="#" >TRANFORMERS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Service" >Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('login') }}" class="btn btn-secondary">Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div><a href="#Service" class="btn btn-success btn-lg">TOUCH TO LEARN MORE ABOUT THEM</a> </div>
+    </section>
+    <section id="Service">
+        <div class="container mt-5 as"> 
+            <h1><center> <i>TRANFORMERS</i></center></h1>
+            <br>
+            <h2>THEY CHANGE INTO ROBOTS</h2>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                    <img src="{{url_for('static',filename='images/im1.jfif')}}" class="card-img-top" alt="Service 1" height="200px" width="200px">
+                    <div class="card-body">
+                    <h5 class="card-title">OPTIMUS PRIME</h5>
+                    <p></p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-success">Learn More</a>
+                </div>
+            </div>
+        </div>
+     
+                <div class="col-md-3">
+                    <div class="card">
+                    <img src="{{url_for('static',filename='images/im2.webp')}}" class="card-img-top" alt="Service 1" height="200px" width="200px">
+                    <div class="card-body">
+                    <h5 class="card-title">BUMBLEBEE</h5>
+                    <p></p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-success">Learn More</a>
+                </div>
+            </div>
+        </div>
+       
+                <div class="col-md-3">
+                    <div class="card">
+                    <img src="{{url_for('static',filename='images/im3.jpeg')}}" class="card-img-top" alt="Service 1" height="200px" width="200px">
+                    <div class="card-body">
+                    <h5 class="card-title">MIRAGE</h5>
+                    <p></p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+                <div class="col-md-3">
+                    <div class="card">
+                    <img src="{{url_for('static',filename='images/im4.jfif')}}" class="card-img-top" alt="Service 1" height="200px" width="200px">
+                    <div class="card-body">
+                    <h5 class="card-title">MEGATRON</h5>
+                    <p></p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+    </div>
+    <br>
+    </section>
+    <div class="heros"></div>
+        <body onload="restrictPastDate()">
+            <div class="container">
+                <br>
+                <h2> For Test Drive Appointment</h2>
+                <form action="/submit" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mail" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="mail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Appointment Date</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+          {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-success mt-3" role="alert">
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <br>
+                
+            </div>
+        
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+            <script>
+                function restrictPastDate() {
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('date').setAttribute('min', today);
+                }
+            </script>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>@ 2024 TRANFORMERS. All Rights Reserved by SANJAY.U.V</p>
+    </footer>
+</body>
+</html>
